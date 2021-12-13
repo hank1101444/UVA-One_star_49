@@ -1,3 +1,4 @@
+// 題目還是只有一句話 不能看成兩句話ex 千個一千萬(3 kuti 16 lakh kuti 70 hajar)
 # include <iostream>
 using namespace std;
 void split(long long a);
