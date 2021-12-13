@@ -10,8 +10,8 @@ int main() {
 	while (cin >> a) {
 
 		count++;
-		
-		cout << setw(4) << count << ".";
+		//題目有說with four digits adjustment
+		cout << setw(4) << count << ".";  //addend
 		if (a == 0) {
 			cout << ' ' << a << endl;
 			continue;
@@ -45,7 +45,7 @@ void split(long long a) {
 		a %= 100;
 		cout << " shata";
 	}
-
-	if (a)
+	// 為0時不要輸出
+	if (a)    // addend
 		cout << ' ' << a;
 }
