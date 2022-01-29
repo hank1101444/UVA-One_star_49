@@ -1,4 +1,4 @@
-##　先把v0 代換掉, a 剛好可消去
+## 先把v0 代換掉, a 剛好可消去
 ```cpp
 #include <iostream>
 using namespace std;
