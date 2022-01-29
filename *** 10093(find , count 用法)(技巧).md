@@ -1,4 +1,4 @@
-![]()
+![](https://github.com/hank1101444/UVA-one-stat-49-/blob/main/1.png)
 ![]()
 ## string.find() 找不到會回傳 -1 找到回傳元素位置
 ## set 用 set.count() 找到回傳 1 沒有傳0
