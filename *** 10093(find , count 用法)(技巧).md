@@ -19,27 +19,25 @@ int main() {
            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             "abcdefghijklmnopqrstuvwxyz";
         for (int i = 0; i < s.size(); i++) {
-            // string.find() 找不到會回傳 -1 找到回傳元素位置
-            // set 用 set.count() 找到回傳 1 沒有傳0
             if (temp.find(s[i]) == -1) {
                 s.erase(i, i + 1); // begin()+i,begin+i+1
             }
         }
-        // 要再寫一個for 因為會刪除元素
+
         for (int i = 0; i < s.size(); i++) {
             sum += temp.find(s[i]);
             if (temp.find(s[i]) > mx) {
                 mx = temp.find(s[i]);
             }
         }
-
-        for (i = mx; i < 62; i++)
-            if (!(sum % i)) {
-                cout << i + 1 << "\n";
+        // 將i視為最小的基底數字 所以最多只能到62
+        for (i = mx+1; i < 63; i++)
+            if (!(sum % (i-1))) {
+                cout << i << "\n";
                 break;
             }
 
-        if (i == 62)
+        if (i == 63)
             cout << "such number is impossible!\n";
     }
 
