@@ -44,3 +44,45 @@ int main() {
     return 0;
 }
 ```
+## vector 搜尋法要引入algorithm
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<int> v = {2, 4, 6, 8, 10, 12, 14, 16, 18};
+
+    vector<int>::iterator it = std::find(v.begin(), v.end(), 10); // find 10
+    if (it != v.end())
+        cout << "found " << *it << ", index: " << std::distance(v.begin(), it) << "\n";
+    else
+        cout << "not find\n";
+
+    return 0;
+}
+```
+&nbsp;
+
+## 傳統array find
+```cpp
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int arr[] = {2, 3, 4, 5, 6};
+
+    int *p = std::find(arr, arr+4, 3); // find 3
+    if (p == arr+4) {
+        cout << "not find\n";
+    } else {
+        cout << "found " << *p << "\n";
+    }
+
+    return 0;
+}
+```
