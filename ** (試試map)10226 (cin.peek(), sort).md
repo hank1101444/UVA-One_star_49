@@ -1,6 +1,6 @@
 # getline cin.get(s,30) 不吃 /n 
 # cin.peek() 可看下一個輸入 
-# EOF 要 include <cstdio>
+# EOF 要 include cstdio
 ```cpp
 #include <iostream>
 using namespace std;
