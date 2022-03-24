@@ -1,0 +1,74 @@
+```cpp
+#include <iostream>
+using namespace std;
+#include <string>
+#include <map>
+
+map <char, string> m{
+
+	{'c',"0111001111"},
+	{'d',"0111001110"},
+	{'e',"0111001100"},
+	{'f',"0111001000"},
+	{'g',"0111000000"},
+	{'a',"0110000000"},
+	{'b',"0100000000"},
+	{'C',"0010000000"},
+	{'D',"1111001110"},
+	{'E',"1111001100"},
+	{'F',"1111001000"},
+	{'G',"1111000000"},
+	{'A',"1110000000"},
+	{'B',"1100000000"},
+};
+
+string last = "0000000000";
+
+void check(int ans[],char a) {
+	for (int j = 0; j < m[a].size(); j++) {
+		if (last[j] == '1' && m[a][j] == '0')
+			last[j] = '0';
+		else if (last[j] == '0' && m[a][j] == '1') {
+			last[j] = '1';
+			ans[j]++;
+		}
+	}
+}
+
+int main() {
+	int n;
+	cin >> n;
+	cin.ignore();
+	while (n--) {
+		int ans[10] = { 0,0,0,0,0,0,0,0,0,0 };
+		last = "0000000000";
+		string s;
+		
+		getline(cin,s);
+		for (int i = 0; i < s.size(); i++) {
+			check(ans, s[i]);
+		}
+		for (int i = 0; i < 10; i++) {
+			cout << ans[i];
+			if (i != 9)
+				cout << ' ';
+		}
+		cout << endl;
+	}
+
+	return 0;
+}
+
+//#include <iostream>
+//using namespace std;
+//#include <map>
+//#include<string>
+//int main() {
+//
+//	map <int, string> m;
+//	m.insert(pair<int,string> (1, "hank"));
+//	cout << m[1];
+//
+//	return 0;
+//}
+```
