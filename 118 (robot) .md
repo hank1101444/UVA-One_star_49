@@ -1,3 +1,4 @@
+## 讀到檔案結束 用 cin.eof();
 ```cpp
 #include <iostream>
 using namespace std;
@@ -7,7 +8,7 @@ int** p;
 
 class Bot {
 public:
-	void init_bot();
+	bool init_bot();
 	void forward();
 	bool check();
 	void output();
@@ -18,14 +19,15 @@ public:
 	char current_face;
 };
 
-void Bot::init_bot(){
+bool Bot::init_bot() {
 	////以真實座標來看
-	//cin >> x >> y;
-	//// 外面有違一圈所以要先++
-	//x++;
-	//y++;
-	//cin >> current_face;
-	//flag = true;
+	cin >> x >> y;
+	// 外面有違一圈所以要先++
+	x++;
+	y++;
+	cin >> current_face;
+	flag = true;
+	return !cin.eof();
 }
 
 void Bot::turn(char tmp) {
@@ -78,7 +80,7 @@ void Bot::forward() {
 vector <Bot> dangerous;
 
 bool Bot::check() {
-	
+
 	for (int i = 0; i < dangerous.size(); i++) {
 		if (dangerous[i].x == x && dangerous[i].y == y)
 			return false;
@@ -95,7 +97,7 @@ bool Bot::check() {
 void Bot::output() {
 	// 轉成真實座標
 	cout << --x << ' ' << --y << ' ' << current_face;
-	if (!flag) 
+	if (!flag)
 		cout << ' ' << "LOST";
 	cout << endl;
 }
@@ -104,32 +106,32 @@ void Bot::output() {
 int main() {
 	int x, y;
 	string s;
-	
+
 	cin >> x >> y;
 	// 多圍一圈 + 2
 	// x,y 為最右上座標所ˇ以還要再加一是存0用的
-	x+=3;
-	y+=3;
+	x += 3;
+	y += 3;
 	p = new int* [y];
-	for (int i = 0; i < y; i++) 
+	for (int i = 0; i < y; i++)
 		p[i] = new int[x]();
 	// 1
 	for (int j = 0; j < y; j++) {
 		for (int i = 0; i < x; i++) {
-			if (j == 0 || j == y - 1||i == 0||i == x-1)
+			if (j == 0 || j == y - 1 || i == 0 || i == x - 1)
 				p[j][i] = 1;
 		}
 	}
-	
+
 	Bot bot;
 	//原本為private 但是為了eof
-	while (cin >> bot.x >> bot.y) {
+	while (bot.init_bot()) {
 		//以真實座標來看
 		// 外面有違一圈所以要先++
-		bot.x++;
-		bot.y++;
-		cin >> bot.current_face;
-		bot.flag = true;
+		//bot.x++;
+		//bot.y++;
+		///cin >> bot.current_face;
+		//bot.flag = true;
 
 		cin >> s;
 		for (int i = 0; i < s.size(); i++) {
@@ -153,6 +155,6 @@ int main() {
 	delete[]p;
 	dangerous.clear();
 
-		return 0;
+	return 0;
 }
 ```
