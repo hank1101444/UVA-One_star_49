@@ -4,22 +4,15 @@
 
 
 ```cpp
-# include<iostream>
+#include <iostream>
 using namespace std;
-#include<cstdlib>
-
+#include <cmath>
 int main() {
-
-
-	long long int x, y;				// modify 
-	while (cin >> x >> y) {
-		long int ans = 0;			// modify
-		ans = abs(x - y);
+	long long int a, b,ans;
+	while (cin >> a >> b) {
+		ans = abs(a - b);
 		cout << ans << endl;
 	}
-
-
-
 
 	return 0;
 }
