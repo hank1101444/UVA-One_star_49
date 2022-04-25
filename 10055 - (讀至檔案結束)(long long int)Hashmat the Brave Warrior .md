@@ -3,7 +3,7 @@
 ## 1. end of file 用 ^c
 
 
-```
+```cpp
 # include<iostream>
 using namespace std;
 #include<cstdlib>
