@@ -1,3 +1,5 @@
+## 題目還是只有一句話 不能看成兩句話ex 千個一千萬(3 kuti 16 lakh kuti 70 hajar)
+```cpp
 // 題目還是只有一句話 不能看成兩句話ex 千個一千萬(3 kuti 16 lakh kuti 70 hajar)
 # include <iostream>
 using namespace std;
@@ -24,7 +26,9 @@ int main() {
 }
 void split(long long a) {
 	if (a >= 10000000) {
+		//先得到商
 		split(a / 10000000);
+		// 再換成餘數
 		a %= 10000000;
 		cout << " kuti";
 	}
@@ -46,7 +50,12 @@ void split(long long a) {
 		a %= 100;
 		cout << " shata";
 	}
-	// 為0時不要輸出
+	// 為0時不要輸出 
+	//1000000000
+	// 如果前面剛好整除則 kuti 會剛好沒細數 像是 600 個一億
+	// think 台幣換算
+	// 1. 1 shata kuti
 	if (a)    // addend
 		cout << ' ' << a;
 }
+```
