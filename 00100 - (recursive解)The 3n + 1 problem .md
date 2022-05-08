@@ -1,20 +1,67 @@
-# 不要用recursive 會tle
+# 使用recursive 注意每次都要回傳
+
+
 ```cpp
 #include <iostream>
 using namespace std;
 
+
+int cyclelength(int n) {
+	if (n == 1) {
+		return 1;
+	}
+	else if (n % 2) {
+		return 1 + cyclelength(3 * n + 1);
+	}
+	else {
+		return 1 + cyclelength(n / 2);
+	}
+}
+
+
+int main() {
+
+	int a, b;
+	while (cin >> a >> b) {
+		int max_ = 0;
+		cout << a << ' ' << b << ' ';
+		if (a > b) {
+			int tmp = a;
+			a = b;
+			b = tmp;
+		}
+
+		for (int i = a; i <= b; i++) {
+			int tmp = cyclelength(i);
+			if (tmp > max_)
+				max_ = tmp;
+		}
+
+		cout << max_ << endl;
+	}
+	return 0;
+}
+```
+## 錯誤
+```cpp
 int num;
-//int ans( int a) {
-//	num++;
-//	if (a == 1)
-//		return num;
-//	else {
-//		if (a % 2 == 1)
-//			ans(3 * a + 1);
-//		else
-//			ans(a /= 2);
-//	}
-//}
+int ans( int a) {
+	num++;
+	if (a == 1)
+		return num;
+	else {
+		if (a % 2 == 1)
+			ans(3 * a + 1);
+		else
+			ans(a /= 2);
+	}
+}
+```
+```cpp
+#include <iostream>
+using namespace std;
+
+
 
 
 int main() {
